@@ -8,7 +8,7 @@ const helmet = require("helmet")
 const sauceRoutes = require('./routes/sauce') 
 const userRoutes = require('./routes/user') 
 const apiLimiter = require("./middleware/limits-rate") 
-const path = require('path') /
+const path = require('path')
 
 mongoose.connect('mongodb+srv://joshua:123@clusty-box.khuui.mongodb.net/clusty-box?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -29,7 +29,8 @@ app.use(mongoSanitize()) // sanitizing the request to prevent injection attacks
 app.use(helmet()) // 
 
 //part for the files 
-//app.use('/images', express.static(path.join(__dirname, 'images'))) // telling to express where to find and stock the files that will be sent and get 
+app.use('/images', express.static(path.join(__dirname, 'images')));// telling to express where to find and stock the files that will be sent and get 
+
 // all the routes
 app.use('/api/sauces', apiLimiter, sauceRoutes) 
 app.use('/api/auth', apiLimiter, userRoutes) 

@@ -1,8 +1,8 @@
-const http = require('http') //On importe le package http de Node
-require('dotenv').config() //On importe dotenv
-const app = require('./app') //On importe notre app express
+const http = require('http') 
+require('dotenv').config() //importing dotenv for the .env
+const app = require('./app') 
 
-const normalizePort = val => { //renvoie un port valide, qu'il soit fourni sous la forme d'un numéro ou d'une chaîne
+const normalizePort = val => { 
     const port = parseInt(val, 10)
 
     if (isNaN(port)) {
@@ -14,14 +14,14 @@ const normalizePort = val => { //renvoie un port valide, qu'il soit fourni sous 
     return false
 }
 const port = normalizePort(process.env.PORT || '3000')
-app.set('port', port) //On indique quel port l'app utilise
+app.set('port', port) 
 
-const errorHandler = error => { //recherche les différentes erreurs et les gère de manière appropriée. Elle est ensuite enregistrée dans le serveur
-    if (error.syscall !== 'listen') { //error.syscall = appel système qui a échoué
+const errorHandler = error => { 
+    if (error.syscall !== 'listen') { 
         throw error
     }
-    const address = server.address() //renvoie l'adresse liée contenant le nom de famille et le port du serveur
-    const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port //On vérifie le type 
+    const address = server.address() 
+    const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port 
     switch (error.code) {
         case 'EACCES':
             console.error(bind + ' requires elevated privileges.')
@@ -36,13 +36,13 @@ const errorHandler = error => { //recherche les différentes erreurs et les gèr
     }
 }
 
-const server = http.createServer(app) //Créé notre serveur en utilisant notre app
+const server = http.createServer(app) 
 
-server.on('error', errorHandler) //Renvoi errorHandler en cas d'erreur
-server.on('listening', () => { //un écouteur d'évènements, consignant le port ou le canal nommé sur lequel le serveur s'exécute dans la console
-    const address = server.address() //renvoie l'adresse liée contenant le nom de famille et le port du serveur
-    const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port //On vérifie le type 
+server.on('error', errorHandler) 
+server.on('listening', () => { 
+    const address = server.address() 
+    const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port 
     console.log('Listening on ' + bind)
 })
 
-server.listen(port) //On écoute notre port
+server.listen(port)
