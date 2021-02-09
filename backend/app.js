@@ -35,4 +35,5 @@ app.use('/images', express.static(path.join(__dirname, 'images')));// telling to
 app.use('/api/sauces', apiLimiter, sauceRoutes) 
 app.use('/api/auth', apiLimiter, userRoutes) 
 
-module.exports = app //On exporte notre constante
+// exporting app
+module.exports = app 
