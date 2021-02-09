@@ -7,7 +7,7 @@ const User = require('../models/User')
 // exporting the function
 exports.signup = (req, res, next) => { 
      const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{3,}$/gm //regex in order to protect the password
-     if (regexPassword.exec(req.body.password) == null){ /
+     if (regexPassword.exec(req.body.password) == null){
           res.status(406).json({ message: 'Mot de passe incorrecte ou trop faible' }) //Erreur Not Acceptable 
           return false
      }
