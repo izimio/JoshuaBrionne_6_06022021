@@ -7,6 +7,6 @@ const userSchema = mongoose.Schema({ // creating the differents types of input w
 })
 
 userSchema.plugin(uniqueValidator) //applying the unique validator
-
+ 
 //exporting
 module.exports = mongoose.model('User', userSchema)
