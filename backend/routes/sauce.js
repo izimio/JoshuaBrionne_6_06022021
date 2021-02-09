@@ -6,8 +6,9 @@ const sauceCtrl = require('../controllers/sauce') //On importes nos controllers
 
 
 // auth is a middleware to protect the connection
+// normally /api/sauce would be the default but here we can reduce it to / 
+
 router.get('/', auth, sauceCtrl.getAllSauce)
-// /api/sauces serait l'URL complète
 router.post('/', auth, multer, sauceCtrl.createSauce)
 router.get('/:id', auth, sauceCtrl.getOneSauce) 
 router.put('/:id', auth, multer, sauceCtrl.modifySauce) 
