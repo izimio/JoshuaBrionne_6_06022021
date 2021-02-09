@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "backend of OC's 6th project",
+  "description": "OC's 6th project backend",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,8 +15,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.2",
-    "express-rate-limit": "^5.2.5",
-    "helmet": "^4.3.1",
+    "helmet": "^4.4.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.15",
     "mongoose-unique-validator": "^2.0.3",
