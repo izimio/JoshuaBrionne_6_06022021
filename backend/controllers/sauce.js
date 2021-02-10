@@ -57,12 +57,12 @@ exports.likeSauce = (req, res) => {
                 sauce.dislikes++
             } else if (like == 0 && sauce.usersLiked.includes(userId)) {
                 sauce.likes--
-                let pos = sauce.usersLiked.indexOf(userId)
-                sauce.usersLiked.splice(pos, 1)
+                let arr = sauce.usersLiked.indexOf(userId)
+                sauce.usersLiked.splice(arr, 1)
             } else if (like == 0 && sauce.usersDisliked.includes(userId)) {
                 sauce.dislikes--
-                let pos = sauce.usersDisliked.indexOf(userId)
-                sauce.usersDisliked.splice(pos, 1)
+                let arr = sauce.usersDisliked.indexOf(userId)
+                sauce.usersDisliked.splice(arr, 1)
             }
             // updating the sauce now 
             Sauce.updateOne({
