@@ -29,7 +29,7 @@ app.use((req, res, next) => { //On ajoute des headers à notre objet response
 })
 app.use(bodyParser.json({ limit: "1kb" })) // parsing the request and limiting its size 
 app.use(mongoSanitize()) // sanitizing the request to prevent injection attacks 
-app.use(helmet()) // 
+app.use(helmet()) // setting various HTTP headers to protect the connections
 
 //part for the files 
 app.use('/images', express.static(path.join(__dirname, 'images')));// telling to express where to find and stock the files that will be sent and get 
