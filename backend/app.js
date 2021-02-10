@@ -10,11 +10,16 @@ const userRoutes = require('./routes/user')
 const apiLimiter = require("./middleware/limits-rate") 
 const path = require('path')
 
-mongoose.connect('mongodb+srv://joshua:123@clusty-box.khuui.mongodb.net/clusty-box?retryWrites=true&w=majority',
-  { useNewUrlParser: true,
-    useUnifiedTopology: true })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+console.log(process.env.USERNAME_DB);
+
+mongoose.connect(`mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@${process.env.CLUSTER_DB}.5e9cf.mongodb.net/${process.env.DATA_BASE_NAME}?retryWrites=true&w=majority`,
+     {
+          useNewUrlParser: true,
+          useUnifiedTopology: true
+     }
+)
+.then(() => console.log('Connexion à MongoDB réussie !'))
+.catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express() // Creating the API
 
