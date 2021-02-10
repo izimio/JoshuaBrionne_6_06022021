@@ -19,6 +19,16 @@ exports.createSauce = (req, res) => {
 }
 
 exports.modifySauce = (req, res) => {
+    if(req.file){
+        Sauce.findOne({
+            _id: req.params.id
+        })
+        .then(sauce => {
+            const filename = sauce.imageUrl.split('/images/')[1]; // deleting the linked file
+            fs.unlink(`images/${filename}`, () => {
+            })
+        })
+    }
     const sauceObject = req.file ? {
         ...JSON.parse(req.body.sauce),
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
