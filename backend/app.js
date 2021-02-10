@@ -31,7 +31,7 @@ app.use(bodyParser.json({ limit: "1kb" })) // parsing the request and limiting i
 app.use(mongoSanitize()) // sanitizing the request to prevent injection attacks 
 app.use(helmet()) // setting various HTTP headers to protect the connections
 
-//part for the files 
+//part for the files with multer
 app.use('/images', express.static(path.join(__dirname, 'images')));// telling to express where to find and stock the files that will be sent and get 
 
 // all the routes
