@@ -1,25 +1,23 @@
 
 // IMPORTS // 
-const express = require('express') 
-const bodyParser = require('body-parser') 
-const mongoose = require('mongoose') 
-const mongoSanitize = require('express-mongo-sanitize') 
-const helmet = require("helmet") 
-const sauceRoutes = require('./routes/sauce') 
-const userRoutes = require('./routes/user') 
-const apiLimiter = require("./middleware/limits-rate") 
+const express = require('express')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const mongoSanitize = require('express-mongo-sanitize')
+const helmet = require("helmet")
+const sauceRoutes = require('./routes/sauce')
+const userRoutes = require('./routes/user')
+const apiLimiter = require("./middleware/limits-rate")
 const path = require('path')
 
-console.log(process.env.USERNAME_DB);
-
-mongoose.connect(`mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@${process.env.CLUSTER_DB}.5e9cf.mongodb.net/${process.env.DATA_BASE_NAME}?retryWrites=true&w=majority`,
-     {
-          useNewUrlParser: true,
-          useUnifiedTopology: true
-     }
+mongoose.connect(`mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@${process.env.CLUSTER_DB}.khuui.mongodb.net/${process.env.DATA_BASE_NAME}?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
 )
-.then(() => console.log('Connexion à MongoDB réussie !'))
-.catch(() => console.log('Connexion à MongoDB échouée !'));
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express() // Creating the API
 
@@ -37,8 +35,8 @@ app.use(helmet()) //
 app.use('/images', express.static(path.join(__dirname, 'images')));// telling to express where to find and stock the files that will be sent and get 
 
 // all the routes
-app.use('/api/sauces', apiLimiter, sauceRoutes) 
-app.use('/api/auth', apiLimiter, userRoutes) 
+app.use('/api/sauces', apiLimiter, sauceRoutes)
+app.use('/api/auth', apiLimiter, userRoutes)
 
 // exporting app
-module.exports = app 
+module.exports = app
