@@ -1,8 +1,8 @@
-const express = require('express') //On importe express
-const router = express.Router() //nous créons un routeur Express
-const auth = require('../middleware/auth') //On importe notre middleware auth
-const multer = require('../middleware/multer-config') //On importe notre middleware multer
-const sauceCtrl = require('../controllers/sauce') //On importes nos controllers
+const express = require('express') 
+const router = express.Router() 
+const auth = require('../middleware/auth') 
+const multer = require('../middleware/multer-config')
+const sauceCtrl = require('../controllers/sauce') 
 
 
 // auth is a middleware to protect the connection

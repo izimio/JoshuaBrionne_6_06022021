@@ -5,9 +5,9 @@ const User = require('../models/User')
 
 // exporting the function
 exports.signup = (req, res, next) => { 
-     const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{3,}$/gm //regex in order to protect the password
+     const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{3,}$/gm //regex in order to protect the input
      if (regexPassword.exec(req.body.password) == null){
-          res.status(406).json({ message: 'Mot de passe incorrecte ou trop faible' }) //Erreur Not Acceptable 
+          res.status(406).json({ message: 'Mot de passe incorrecte ou trop faible' }) 
           return false
      }
      User.find() // getting all the users to check problems
@@ -15,7 +15,7 @@ exports.signup = (req, res, next) => {
           if (users.length === 0) {
                bcrypt.hash(req.body.password, 10) // salting the password with bcrypt
                .then(hash => {
-                    const user = new User({ //ceatint new user
+                    const user = new User({ //ceating new user
                          email: req.body.email, // the email will soonly be hashed
                          password: hash // the brand new hashed pw
                     })
@@ -40,7 +40,7 @@ exports.signup = (req, res, next) => {
                     bcrypt.compare(req.body.email, user.email) //comparing the crypt
                     .then(valid => {
                          if (valid === true) {
-                             error.AlreadySeen++; //Si comparaison valide
+                             error.AlreadySeen++; 
                               res.status(406).json({ message: 'l\'adresse email est déjà utilisée' })
                          } else if (valid === false) {
                             error.numOfUserChecked++;
@@ -70,7 +70,7 @@ exports.signup = (req, res, next) => {
                })
           }
      })
-     .catch(error => req.status(500).json({ error })) //Erreur serveur
+     .catch(error => req.status(500).json({ error }))
 }
 
 // Login function

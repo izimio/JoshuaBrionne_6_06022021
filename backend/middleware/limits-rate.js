@@ -1,8 +1,10 @@
-const rateLimit = require("express-rate-limit") //On importe rate limit
+const rateLimit = require("express-rate-limit")
 
-const apiLimiter = rateLimit({ //On limite le nombre de requête à notre API
-     windowMs: 15 * 60 * 1000, //Vaut pour 15 minutes
-     max: 100 //Limite le nombre d'IP par windowsMs
+//limiting the amounth of request send to our API 
+const apiLimiter = rateLimit({
+     windowMs: 15 * 60 * 1000, //for an amounth of time of 15 mins 
+     max: 100 //limiting the number of IP 
 });
 
-module.exports = apiLimiter //On exporte notre middleware apiLimiter configuré
+// exporting
+module.exports = apiLimiter 

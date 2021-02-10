@@ -1,4 +1,4 @@
-const mongoose = require('mongoose') //
+const mongoose = require('mongoose')
 
 const sauceSchema = mongoose.Schema({ // creating the differents types of input we wants for the sauce 
      userId: { type: String, required: true }, 

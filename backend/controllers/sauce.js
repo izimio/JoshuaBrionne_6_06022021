@@ -19,15 +19,19 @@ exports.createSauce = (req, res) => {
 }
 
 exports.modifySauce = (req, res) => {
-    if(req.file){
+    // deleting previous image from the DB
+    if (req.file) {
         Sauce.findOne({
             _id: req.params.id
         })
-        .then(sauce => {
-            const filename = sauce.imageUrl.split('/images/')[1]; // deleting the linked file
-            fs.unlink(`images/${filename}`, () => {
+            .then(sauce => {
+                const filename = sauce.imageUrl.split('/images/')[1]; // deleting the linked file
+                fs.unlink(`images/${filename}`, () => {
+                })
             })
-        })
+            .catch(error => res.status(500).json({
+                error
+            }));
     }
     const sauceObject = req.file ? {
         ...JSON.parse(req.body.sauce),
