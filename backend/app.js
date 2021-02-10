@@ -10,7 +10,7 @@ const userRoutes = require('./routes/user')
 const apiLimiter = require("./middleware/limits-rate")
 const path = require('path')
 
-mongoose.connect(`mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@${process.env.CLUSTER_DB}.khuui.mongodb.net/${process.env.DATA_BASE_NAME}?retryWrites=true&w=majority`,
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_CLUSTER}.khuui.mongodb.net/${process.env.DB_CLUSTER_NAME}?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
