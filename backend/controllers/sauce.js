@@ -30,6 +30,20 @@ exports.createSauce = (req, res) => {
         }));
 }
 
+exports.getOneSauce = (req, res) => {
+    Sauce.findOne({
+        _id: req.params.id
+    }) //finding the sauce matching with the Id
+        .then((sauce) => {
+            res.status(200).json(sauce)
+        })
+        .catch((error) => {
+            res.status(404).json({
+                error: error
+            })
+        })
+}
+
 exports.modifySauce = (req, res) => {
     // deleting previous image from the DB
     if (req.file) {
@@ -133,18 +147,4 @@ exports.deleteSauce = (req, res) => {
         .catch(error => res.status(500).json({
             error: 'erreur 500 sauce'
         }))
-}
-
-exports.getOneSauce = (req, res) => {
-    Sauce.findOne({
-        _id: req.params.id
-    }) //finding the sauce matching with the Id
-        .then((sauce) => {
-            res.status(200).json(sauce)
-        })
-        .catch((error) => {
-            res.status(404).json({
-                error: error
-            })
-        })
 }
