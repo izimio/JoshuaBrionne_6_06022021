@@ -1,8 +1,8 @@
 
 // IMPORTS // 
 const express = require('express')
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 const mongoSanitize = require('express-mongo-sanitize')
 const helmet = require("helmet")
 const sauceRoutes = require('./routes/sauce')
