@@ -1,7 +1,19 @@
 const Sauce = require('../models/Sauce')
 const fs = require('fs')
 
-//creating sauce
+
+exports.getAllSauce = (req, res) => {
+    Sauce.find() // finding all sauces and returning them inside an arr
+        .then((sauces) => {
+            res.status(200).json(sauces)
+        })
+        .catch((error) => {
+            res.status(400).json({
+                error: error
+            })
+        })
+}
+
 exports.createSauce = (req, res) => {
     const sauceObject = JSON.parse(req.body.sauce)
     delete sauceObject._id //deletting frondtend's sauce ID
@@ -132,18 +144,6 @@ exports.getOneSauce = (req, res) => {
         })
         .catch((error) => {
             res.status(404).json({
-                error: error
-            })
-        })
-}
-
-exports.getAllSauce = (req, res) => {
-    Sauce.find() // finding all sauces and returning them inside an arr
-        .then((sauces) => {
-            res.status(200).json(sauces)
-        })
-        .catch((error) => {
-            res.status(400).json({
                 error: error
             })
         })
