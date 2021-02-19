@@ -1,9 +1,9 @@
 const multer = require('multer') //
 
 const MIME_TYPES = { //dict in order to know the file's extension
-     'image/jpg': 'jpg',
-     'image/jpeg': 'jpg',
-     'image/png': 'png'
+     'image/jpg': '.jpg',
+     'image/jpeg': '.jpg',
+     'image/png': '.png'
 };
 
 const storage = multer.diskStorage({ 
@@ -11,10 +11,10 @@ const storage = multer.diskStorage({
           callback(null, 'images') //saving the file inside the "images" file
      },
      filename: (req, file, callback) => { 
-          const name = file.originalname.split(' ').join('_') // removing the white spaces and replacing them with underscores
+          const name = file.originalname.split(' ').join('_').split('.')[0]  // removing the white spaces and replacing them with underscores
           //creating the file's extension
           const extension = MIME_TYPES[file.mimetype]
-          callback(null, name + Date.now() + '.' + extension) //calling our file with his name + the date in order to avoid any duplicate
+          callback(null, name + "_" + Date.now() + extension) //calling our file with his name + the date in order to avoid any duplicate
      }
 })
 
