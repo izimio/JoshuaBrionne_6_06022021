@@ -15,6 +15,18 @@ Skills learned :
 * Express
 * backend security
 * nodeJS
+* a lot of depencies such as : 
+  * Mongoose
+  * body-parser
+  * Bcrypt
+  * Mongoose-Unique-validator
+  * express-rate-limit
+  * Helmet
+  * Mongoose-sanitize
+  * Jsonwebtoken
+  * Dotenv
+  * nodemon
+  * multer
 
 --------------------------------------------------------
 
@@ -30,14 +42,14 @@ then process like this :
 `nvm install 10.0.0`
 `nvm use 10.0.0`
 
-go to the frontend folder 
+Go to the frontend folder 
 =====    
 `npm install`
 `npm start`
 
 *It'll take a medium amounth of time, and as soon as the project is listening to port 3000 the connection is fine and working*
 
-go to the backend folder 
+Go to the backend folder 
 =====
 Then rename the .env.Schema to __.env__ and ajust the variables with you DB informations
 
