@@ -23,7 +23,7 @@ How to make this project work :
 
 First thing first, use nodeJS 10.0.0
 
-As it is kinda hard to install this version nowadays, you can use NVM in order to have fully acces to any nodeJS version you want. 
+As it is kinda hard to install this version nowadays, you can use NVM in order to have a fully acces to any nodeJS version you want. 
 go to this repo and install it [here](https://github.com/coreybutler/nvm-windows)
 
 then process like this : 
