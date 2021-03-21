@@ -3,7 +3,7 @@
 ***This is the 6th project from OC's web dev formation***
 ===
 
-In the one we learn how to create and organize a backend environment
+In this one we learn how to create and organize a backend environment
 This project contains : 
 - User interface
 - Adding stuff to a DATABASE 
