@@ -3,59 +3,26 @@
 ***This is the 6th project from OC's web dev formation***
 ===
 
-In the one we learn how to create and organize a backend environment
+In this one we learn how to create and organize a backend environment for a social network
 This project contains : 
 - User interface
-- Adding stuff to a DATABASE 
-- modifying / deleting / adjust frontend value from user's inputs 
+- Creating and maintening a DB 
+- modifying / deleting / adjust frontend value from user's inputs
+- hold a user connection 
+- protect a user connection
+- CRUD actions
+- and so on 
 
 
 Skills learned : 
-* MongoDB 
-* Express
-* backend security
-* nodeJS
-* a lot of depencies such as : 
-  * Mongoose
-  * body-parser
-  * Bcrypt
-  * Mongoose-Unique-validator
-  * express-rate-limit
-  * Helmet
-  * Mongoose-sanitize
-  * Jsonwebtoken
-  * Dotenv
-  * nodemon
-  * multer
+* SQL
+* VueJS
+* Sequelize ORM
 
 --------------------------------------------------------
 
 How to make this project work : 
 ========
 
-First thing first, use nodeJS 10.0.0
-
-As it is kinda hard to install this version nowadays, you can use NVM in order to have a fully acces to any nodeJS version you want. 
-go to this repo and install it [here](https://github.com/coreybutler/nvm-windows)
-
-then process like this : 
-`nvm install 10.0.0`
-`nvm use 10.0.0`
-
-Go to the frontend folder 
-=====    
-`npm install`
-`npm start`
-
-*It'll take a medium amounth of time, and as soon as the project is listening to port 3000 the connection is fine and working*
-
-Go to the backend folder 
-=====
-Then rename the .env.Schema to __.env__ and ajust the variables with you DB informations
-
-`npm install`
-`npm start`
-
-by default, the command is node server, but you can modify to nodemon as you wish inside de __package.json__
-
+Read the Readme in the backend && frontend folder :)
 
